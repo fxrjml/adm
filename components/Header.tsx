@@ -58,9 +58,9 @@ const Header: React.FC = () => {
         </button>
       </div>
       {/* Mobile Menu */}
-      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-screen' : 'max-h-0'}`}>
-        <div className="absolute top-full left-0 w-full bg-slate-900/95 backdrop-blur-sm py-4">
-            <nav className="flex flex-col items-center space-y-4">
+      <div className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+        <div className="bg-slate-900/95 backdrop-blur-sm">
+            <nav className="flex flex-col items-center space-y-4 py-4">
                 {navLinks.map((link) => (
                    <a key={link.href} href={link.href} className="text-slate-200 hover:text-amber-400 transition-colors duration-300 font-semibold text-lg" onClick={(e) => handleLinkClick(e, link.href)}>
                       {link.label}
