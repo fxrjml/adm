@@ -12,6 +12,11 @@ import galleryEvent4 from './assets/images/gallery-asian-presenting.jpg';
 import galleryLandscape2 from './assets/images/gallery-bridge.jpg';
 import galleryEvent5 from './assets/images/gallery-card.jpg';
 import galleryLandscape3 from './assets/images/gallery-car.jpg';
+import galleryLandscape4 from './assets/images/gallery-horse.jpg';
+import galleryPortraits from './assets/images/gallery-dawood.jpg';
+import galleryPortraits2 from './assets/images/gallery-raja.jpg';
+import galleryLandscape5 from './assets/images/gallery-car1.jpg';
+
 
 
 export const LandscapeIcon: React.FC<{className?: string}> = ({className}) => (
@@ -63,6 +68,11 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   { id: '6', src: galleryLandscape2, alt: 'a bridge at night', category: 'Landscapes' },
   { id: '7', src: galleryEvent5, alt: 'a close up of a business card', category: 'Events & Commercial' },
   { id: '8', src: galleryLandscape3, alt: 'a close up of a cars headlights', category: 'Landscapes' },
+  { id: '9', src: galleryLandscape4, alt: 'a horse running in a field', category: 'Landscapes' },
+  { id: '10', src: galleryPortraits, alt: 'a portrait of a model in a hoodie with eyes covered', category: 'Portraits' },
+  { id: '11', src: galleryPortraits2, alt: 'a portrait of a model in a park', category: 'Portraits' },
+  { id: '12', src: galleryLandscape5, alt: 'a pakistani van with headlights on', category: 'Landscapes' },
+
 
 ];
 

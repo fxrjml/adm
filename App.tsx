@@ -45,7 +45,7 @@ const Hero: React.FC = () => (
       </div>
       <div className="overflow-hidden mt-4">
         <p className="text-xl md:text-2xl text-amber-300 font-light tracking-wide opacity-0 animate-slide-in-up-delayed">
-          Where your dream is where we achieve
+          Where Every Shot Tells Your Story
         </p>
       </div>
     </div>
@@ -61,10 +61,10 @@ const About: React.FC = () => (
       </AnimatedWrapper>
       <AnimatedWrapper className="md:w-2/3 text-lg text-slate-300 space-y-4 text-center md:text-left">
         <p>
-          Welcome to Admaperture! I'm a passionate freelance photographer with a love for adventure and storytelling. My journey began with a simple desire to capture the beauty of the world around me, from the grandest landscapes to the most intimate human moments.
+          Welcome to AdmAperture! I’m a passionate freelance photographer dedicated to turning your vision into stunning, unforgettable images. From sweeping landscapes to intimate portraits and dynamic commercial shoots, my goal is to capture the moments that matter most—beautifully, authentically, and with a touch of adventure.
         </p>
         <p>
-          My camera is my tool for exploration, allowing me to connect with people and places in a meaningful way. I believe that every photo has a story to tell, and my mission is to tell yours with creativity, authenticity, and a touch of adventurous spirit.
+          Photography, for me, is more than just taking pictures—it’s about telling your story. I work closely with each client to understand their vision, ensuring every shot reflects their personality, brand, or special occasion. Whether it’s a corporate event, a family gathering, or a personal portrait session, I bring creativity, attention to detail, and a commitment to excellence to every project.
         </p>
       </AnimatedWrapper>
     </div>
