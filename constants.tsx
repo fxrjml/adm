@@ -79,14 +79,14 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
     {
-        quote: "The photos are absolutely breathtaking! They managed to capture the essence of our special day perfectly. We couldn't be happier with the results.",
-        author: "Jessica & Tom",
-        company: "Wedding Couple"
+        quote: "One of the best experiences i've ever had. The best photos in town.",
+        author: "Raja Waris",
+        company: "Model"
     },
     {
-        quote: "An unparalleled eye for detail and a true professional. The commercial shots for our new product line have exceeded all our expectations. Highly recommended!",
-        author: "Mark Johnson",
-        company: "CEO of Innovate Co."
+        quote: "Exceptional services. Shots were as professional as it gets .Highly recommended!",
+        author: "RHT",
+        company: "Reach High Tutors"
     },
     {
         quote: "Working with them was an absolute pleasure. They made me feel so comfortable during the portrait session, and the final images are just stunning.",
