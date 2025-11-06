@@ -1,55 +1,41 @@
-
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react'; // Added useMemo
 import Header from './components/Header';
 import AnimatedWrapper from './components/AnimatedWrapper';
+import Section from './components/Section';
+import FeaturedOn from './components/FeaturedOn';
 import BackToTop from './components/BackToTop';
 import Testimonials from './components/Testimonials';
 import ImageModal from './components/ImageModal';
 import type { Service, GalleryImage } from './types';
-import { 
-    SERVICES, 
-    GALLERY_IMAGES, 
-    TwitterIcon, 
-    InstagramIcon, 
+import {
+    SERVICES,
+    GALLERY_IMAGES,
+    TwitterIcon,
+    InstagramIcon,
     FacebookIcon,
     HERO_IMAGE_URL,
     ABOUT_IMAGE_URL
 } from './constants';
 
 
-const Section: React.FC<{id: string, title?: string, className?: string, children: React.ReactNode}> = ({ id, title, className, children }) => (
-  <section id={id} className={`py-20 md:py-32 ${className}`}>
-    <div className="container mx-auto px-6">
-      {title && (
-        <AnimatedWrapper>
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-100 tracking-tight sm:text-5xl">{title}</h2>
-            <div className="mt-4 mx-auto w-24 h-1 bg-amber-400 rounded"></div>
-          </div>
-        </AnimatedWrapper>
-      )}
-      {children}
-    </div>
-  </section>
-);
+
 
 const Hero: React.FC = () => (
-  <section id="hero" className="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style={{ backgroundImage: `url('${HERO_IMAGE_URL}')` }}>
-    <div className="absolute inset-0 bg-black/60"></div>
-    <div className="relative z-10 px-4">
-      <div className="overflow-hidden">
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase opacity-0 animate-slide-in-up">
-          admaperture
-        </h1>
-      </div>
-      <div className="overflow-hidden mt-4">
-        <p className="text-xl md:text-2xl text-amber-300 font-light tracking-wide opacity-0 animate-slide-in-up-delayed">
-          Where Every Shot Tells Your Story
-        </p>
-      </div>
-    </div>
-  </section>
+    <section id="hero" className="relative h-screen flex items-center justify-center text-center bg-cover bg-center" style={{ backgroundImage: `url('${HERO_IMAGE_URL}')` }}>
+        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="relative z-10 px-4">
+            <div className="overflow-hidden">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter text-white uppercase opacity-0 animate-slide-in-up">
+                    admaperture
+                </h1>
+            </div>
+            <div className="overflow-hidden mt-4">
+                <p className="text-xl md:text-2xl text-amber-300 font-light tracking-wide opacity-0 animate-slide-in-up-delayed">
+                    Where Every Shot Tells Your Story
+                </p>
+            </div>
+        </div>
+    </section>
 );
 
 
@@ -93,53 +79,68 @@ const Services: React.FC = () => (
     </Section>
 );
 
-const Gallery: React.FC<{onImageClick: (index: number) => void}> = ({ onImageClick }) => {
-    const [filter, setFilter] = useState('All');
-    const [filteredImages, setFilteredImages] = useState(GALLERY_IMAGES);
+// --- MODIFICATION START ---
+// The Gallery component is changed to receive all its logic as props.
+interface GalleryProps {
+    images: GalleryImage[];
+    filter: string;
+    onFilterChange: (category: string) => void;
+    sortOrder: string;
+    onSortChange: (order: string) => void;
+    onImageClick: (image: GalleryImage) => void;
+}
 
-    const galleryFilters = ['All', ...new Set(GALLERY_IMAGES.map(img => img.category))];
-
-    useEffect(() => {
-        if (filter === 'All') {
-            setFilteredImages(GALLERY_IMAGES);
-        } else {
-            setFilteredImages(GALLERY_IMAGES.filter(image => image.category === filter));
-        }
-    }, [filter]);
+const Gallery: React.FC<GalleryProps> = ({ images, filter, onFilterChange, sortOrder, onSortChange, onImageClick }) => {
+    const galleryFilters = ['All', 'Landscapes', 'Events & Commercial', 'Portraits'];
 
     return (
         <Section id="gallery" title="Gallery" className="bg-slate-800">
-            <AnimatedWrapper className="flex justify-center flex-wrap gap-2 md:gap-4 mb-12">
-                {galleryFilters.map(category => (
-                    <button
-                        key={category}
-                        onClick={() => setFilter(category)}
-                        className={`px-4 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 border-2 ${filter === category ? 'bg-amber-400 text-slate-900 border-amber-400' : 'bg-transparent text-slate-300 border-slate-600 hover:bg-slate-700/50 hover:border-slate-500'}`}
-                    >
-                        {category}
-                    </button>
-                ))}
+            <AnimatedWrapper>
+                <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12">
+                    <div className="flex justify-center flex-wrap gap-2 md:gap-4">
+                        {galleryFilters.map(category => (
+                            <button
+                                key={category}
+                                onClick={() => onFilterChange(category)}
+                                className={`px-4 py-2 text-sm md:text-base font-semibold rounded-full transition-all duration-300 border-2 ${filter === category ? 'bg-amber-400 text-slate-900 border-amber-400' : 'bg-transparent text-slate-300 border-slate-600 hover:bg-slate-700/50 hover:border-slate-500'}`}
+                            >
+                                {category}
+                            </button>
+                        ))}
+                    </div>
+                    <div className="flex items-center gap-2 text-sm">
+                        <label htmlFor="sort-order" className="font-semibold text-slate-300">Sort by:</label>
+                        <select
+                            id="sort-order"
+                            value={sortOrder}
+                            onChange={(e) => onSortChange(e.target.value)}
+                            className="bg-slate-700 border border-slate-600 rounded-md px-2 py-1 text-white focus:ring-amber-400 focus:border-amber-400"
+                        >
+                            <option value="newest">Newest First</option>
+                            <option value="oldest">Oldest First</option>
+                        </select>
+                    </div>
+                </div>
             </AnimatedWrapper>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {filteredImages.map((image, index) => {
-                    const originalIndex = GALLERY_IMAGES.findIndex(img => img.id === image.id);
-                     return (
-                        <AnimatedWrapper key={image.id}>
-                            <div className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-w-1 aspect-h-1" onClick={() => onImageClick(originalIndex)}>
-                                <img src={image.src} alt={image.alt} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" />
-                                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-                                    <p className="text-white text-center">{image.alt}</p>
-                                </div>
+                {images.map((image) => (
+                    <AnimatedWrapper key={image.id}>
+                        <div className="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer aspect-w-1 aspect-h-1" onClick={() => onImageClick(image)}>
+                            <img src={image.src} alt={image.alt} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500 ease-in-out" />
+                            <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+                                <p className="text-white text-center">{image.alt}</p>
                             </div>
-                        </AnimatedWrapper>
-                     )
-                })}
+                        </div>
+                    </AnimatedWrapper>
+                ))}
             </div>
         </Section>
     );
 };
+// --- MODIFICATION END ---
 
 
+// --- YOUR ORIGINAL BOOKING, CONTACT, and FOOTER CODE IS FULLY RESTORED BELOW ---
 const Booking: React.FC = () => {
     const [formData, setFormData] = useState({
         name: '',
@@ -159,7 +160,6 @@ const Booking: React.FC = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         setStatus('submitting');
-        // NOTE: Replace 'YOUR_FORM_ID' with your actual Formspree form ID from formspree.io
         const formspreeEndpoint = 'https://formspree.io/f/myzjrrwe';
 
         try {
@@ -250,7 +250,6 @@ const Booking: React.FC = () => {
     );
 };
 
-
 const Contact: React.FC = () => (
     <Section id="contact" title="Get In Touch">
         <AnimatedWrapper>
@@ -270,28 +269,46 @@ const Footer: React.FC = () => (
     <footer className="bg-slate-900 border-t border-slate-800">
         <div className="container mx-auto py-6 px-6 text-center text-slate-400">
             <div className="flex justify-center space-x-6 mb-4">
-                <a href="https://twitter.com/admaperture" target="_blank" rel="noopener noreferrer" aria-label="Follow on Twitter" className="hover:text-amber-400 transition-colors"><TwitterIcon className="w-6 h-6" /></a>
-                <a href="https://instagram.com/admaperture" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="hover:text-amber-400 transition-colors"><InstagramIcon className="w-6 h-6" /></a>
-                <a href="https://facebook.com/admaperture" target="_blank" rel="noopener noreferrer" aria-label="Follow on Facebook" className="hover:text-amber-400 transition-colors"><FacebookIcon className="w-6 h-6" /></a>
+                <a href="https://www.instagram.com/admaperture.co.uk/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram" className="hover:text-amber-400 transition-colors"><InstagramIcon className="w-6 h-6" /></a>
             </div>
             <p>&copy; {new Date().getFullYear()} Admaperture Photography. All Rights Reserved. Contact me at: +44 7352 335248 </p>
         </div>
     </footer>
 );
 
+// --- MODIFICATION START ---
+// The App component is updated to manage state for the gallery and modal.
 function App() {
-  const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
-  
+  const [filter, setFilter] = useState('All');
+  const [sortOrder, setSortOrder] = useState('newest');
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+
+  const displayedImages = useMemo(() => {
+    const filtered = filter === 'All'
+      ? GALLERY_IMAGES
+      : GALLERY_IMAGES.filter(img => img.category === filter);
+
+    const sorted = [...filtered].sort((a, b) => {
+      const dateA = new Date(a.dateAdded);
+      const dateB = new Date(b.dateAdded);
+      return sortOrder === 'newest' ? dateB.getTime() - dateA.getTime() : dateA.getTime() - dateB.getTime();
+    });
+
+    return sorted;
+  }, [filter, sortOrder]);
+
   const handleNextImage = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex + 1) % GALLERY_IMAGES.length);
-    }
+    if (!selectedImage) return;
+    const currentIndex = displayedImages.findIndex(img => img.id === selectedImage.id);
+    const nextIndex = (currentIndex + 1) % displayedImages.length;
+    setSelectedImage(displayedImages[nextIndex]);
   };
 
   const handlePrevImage = () => {
-    if (selectedImageIndex !== null) {
-      setSelectedImageIndex((selectedImageIndex - 1 + GALLERY_IMAGES.length) % GALLERY_IMAGES.length);
-    }
+    if (!selectedImage) return;
+    const currentIndex = displayedImages.findIndex(img => img.id === selectedImage.id);
+    const prevIndex = (currentIndex - 1 + displayedImages.length) % displayedImages.length;
+    setSelectedImage(displayedImages[prevIndex]);
   };
 
   return (
@@ -301,17 +318,25 @@ function App() {
         <Hero />
         <About />
         <Services />
-        <Gallery onImageClick={setSelectedImageIndex}/>
+        <FeaturedOn />
+        <Gallery
+          images={displayedImages}
+          filter={filter}
+          onFilterChange={setFilter}
+          sortOrder={sortOrder}
+          onSortChange={setSortOrder}
+          onImageClick={setSelectedImage}
+        />
         <Testimonials />
         <Booking />
         <Contact />
       </main>
       <Footer />
       <BackToTop />
-      {selectedImageIndex !== null && (
+      {selectedImage !== null && (
         <ImageModal
-          image={GALLERY_IMAGES[selectedImageIndex]}
-          onClose={() => setSelectedImageIndex(null)}
+          image={selectedImage}
+          onClose={() => setSelectedImage(null)}
           onNext={handleNextImage}
           onPrev={handlePrevImage}
         />
@@ -319,5 +344,6 @@ function App() {
     </div>
   );
 }
+// --- MODIFICATION END ---
 
 export default App;

@@ -2,7 +2,7 @@ import React from 'react';
 import type { Service, GalleryImage, Testimonial } from './types';
 
 // Import local images from the 'assets' folder
-import heroImage from './assets/images/hero-background.jpg';
+import heroImage from './assets/images/gallery-adm.jpg';
 import aboutImage from './assets/images/gallery-about.jpg';
 import galleryLandscape from './assets/images/gallery-street.jpg';
 import galleryEvent1 from './assets/images/gallery-guy-speech.jpg';
@@ -14,7 +14,6 @@ import galleryEvent5 from './assets/images/gallery-card.jpg';
 import galleryLandscape3 from './assets/images/gallery-car.jpg';
 import galleryLandscape4 from './assets/images/gallery-horse.jpg';
 import galleryPortraits from './assets/images/gallery-dawood.jpg';
-import galleryPortraits2 from './assets/images/gallery-raja.jpg';
 import galleryLandscape5 from './assets/images/gallery-car1.jpg';
 import galleryPortraits3 from './assets/images/gallery-jamal.jpg';
 import galleryLandscape7 from './assets/images/gallery-horse1.jpg';
@@ -24,6 +23,15 @@ import galleryPortraits5 from './assets/images/gallery-ali.jpg';
 import galleryPortraits6 from './assets/images/gallery-ali1.jpg';
 import galleryPortraits7 from './assets/images/gallery-ali2.jpg';
 import galleryEvent6 from './assets/images/gallery-skysports.jpg';
+import galleryEvent7 from './assets/images/gallery-skyevent.jpg';
+import galleryEvent8 from './assets/images/gallery-sky1.jpg';
+import galleryEvent9 from './assets/images/gallery-sky2.jpg';
+import galleryEvent10 from './assets/images/gallery-sky3.jpg';
+import galleryEven11 from './assets/images/gallery-sky4.jpg';
+import galleryEvent12 from './assets/images/gallery-boxing.jpeg';
+import galleryEvent13 from './assets/images/gallery-boxing1.jpeg';
+import galleryEvent14 from './assets/images/gallery-boxing2.jpeg';
+import galleryEvent15 from './assets/images/gallery-boxing3.jpeg';
 
 
 
@@ -70,26 +78,34 @@ export const ABOUT_IMAGE_URL = aboutImage;
 
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: '1', src: galleryLandscape, alt: 'Dark Street under neon lights', category: 'Landscapes' },
-  { id: '2', src: galleryEvent1, alt: 'A man presenting to a large group of people', category: 'Events & Commercial' },
-  { id: '3', src: galleryEvent2, alt: 'a child making a drawing', category: 'Events & Commercial' },
-  { id: '4', src: galleryEvent3, alt: 'a child holding a cat', category: 'Events & Commercial' },
-  { id: '5', src: galleryEvent4, alt: 'an asian man speaking to a crowd', category: 'Events & Commercial' },
-  { id: '6', src: galleryLandscape2, alt: 'a bridge at night', category: 'Landscapes' },
-  { id: '7', src: galleryEvent5, alt: 'A close up of a business card', category: 'Events & Commercial' },
-  { id: '8', src: galleryLandscape3, alt: 'A close up of a cars headlights', category: 'Landscapes' },
-  { id: '9', src: galleryLandscape4, alt: 'A horse running in a field', category: 'Landscapes' },
-  { id: '10', src: galleryPortraits, alt: 'A portrait of a model in a hoodie with eyes covered', category: 'Portraits' },
-  { id: '11', src: galleryPortraits2, alt: 'A portrait of a model in a park', category: 'Portraits' },
-  { id: '12', src: galleryLandscape5, alt: 'A pakistani van with headlights on', category: 'Landscapes' },
-  { id: '13', src: galleryPortraits3, alt: 'A player smiling during warm up', category: 'Portraits' },
-  { id: '14', src: galleryLandscape7, alt: 'Man riding a horse', category: 'Landscapes' },
-  { id: '15', src: galleryLandscape8, alt: 'Player taking on a defender', category: 'Landscapes' },
-  { id: '16', src: galleryPortraits4, alt: '2 photographers in the middle of taking photos', category: 'Portraits' },
-  { id: '17', src: galleryPortraits5, alt: 'A player dribbling a football', category: 'Portraits' },
-  { id: '19', src: galleryPortraits6, alt: 'Two players discussing before a match', category: 'Portraits' },
-  { id: '20', src: galleryPortraits7, alt: 'A player in action during a match', category: 'Portraits' },
-  { id: '21', src: galleryEvent6, alt: 'Sky sports x ADM partnership', category: 'Events & Commercial' },
+  { id: '1', src: galleryLandscape, alt: 'Dark Street under neon lights', category: 'Landscapes', dateAdded: '2025-09-10' },
+  { id: '2', src: galleryEvent1, alt: 'A man presenting to a large group of people', category: 'Events & Commercial', dateAdded: '2025-09-10' },
+  { id: '3', src: galleryEvent2, alt: 'a child making a drawing', category: 'Events & Commercial', dateAdded: '2025-09-10' },
+  { id: '4', src: galleryEvent3, alt: 'a child holding a cat', category: 'Events & Commercial', dateAdded: '2025-09-10' },
+  { id: '5', src: galleryEvent4, alt: 'an asian man speaking to a crowd', category: 'Events & Commercial', dateAdded: '2025-09-10' },
+  { id: '6', src: galleryLandscape2, alt: 'a bridge at night', category: 'Landscapes', dateAdded: '2025-09-10' },
+  { id: '7', src: galleryEvent5, alt: 'A close up of a business card', category: 'Events & Commercial', dateAdded: '2025-09-10' },
+  { id: '8', src: galleryLandscape3, alt: 'A close up of a cars headlights', category: 'Landscapes', dateAdded: '2025-09-10' },
+  { id: '9', src: galleryLandscape4, alt: 'A horse running in a field', category: 'Landscapes', dateAdded: '2025-09-10' },
+  { id: '10', src: galleryPortraits, alt: 'A portrait of a model in a hoodie with eyes covered', category: 'Portraits', dateAdded: '2025-09-10' },
+  { id: '12', src: galleryLandscape5, alt: 'A pakistani van with headlights on', category: 'Landscapes', dateAdded: '2025-09-10' },
+  { id: '13', src: galleryPortraits3, alt: 'A player smiling during warm up', category: 'Portraits', dateAdded: '2025-11-06' },
+  { id: '14', src: galleryLandscape7, alt: 'Man riding a horse', category: 'Landscapes', dateAdded: '2025-11-06' },
+  { id: '15', src: galleryLandscape8, alt: 'Player taking on a defender', category: 'Landscapes', dateAdded: '2025-11-06' },
+  { id: '16', src: galleryPortraits4, alt: '2 photographers in the middle of taking photos', category: 'Portraits', dateAdded: '2025-11-06' },
+  { id: '17', src: galleryPortraits5, alt: 'A player dribbling a football', category: 'Portraits', dateAdded: '2025-11-06' },
+  { id: '19', src: galleryPortraits6, alt: 'Two players discussing before a match', category: 'Portraits', dateAdded: '2025-11-06' },
+  { id: '20', src: galleryPortraits7, alt: 'A player in action during a match', category: 'Portraits', dateAdded: '2025-11-06' },
+  { id: '21', src: galleryEvent6, alt: 'Sky sports x ADM partnership', category: 'Events & Commercial', dateAdded: '2025-11-07' },
+  { id: '22', src: galleryEvent7, alt: 'Sky sports event photography', category: 'Events & Commercial', dateAdded: '2025-11-07' },
+  { id: '23', src: galleryEvent8, alt: 'Sky sports presenter photography', category: 'Events & Commercial', dateAdded: '2025-11-06' },
+  { id: '24', src: galleryEvent9, alt: 'Sky sports behind the scenes photography', category: 'Events & Commercial', dateAdded: '2025-11-06' },
+  { id: '25', src: galleryEvent10, alt: 'Sky sports event photography', category: 'Events & Commercial', dateAdded: '2025-11-06' },
+  { id: '26', src: galleryEven11, alt: 'Sky sports presenter photography', category: 'Events & Commercial', dateAdded: '2025-11-06' },
+  { id: '27', src: galleryEvent12, alt: 'Boxer leaning againts corner ropes', category: 'Events & Commercial', dateAdded: '2025-11-07' },
+  { id: '28', src: galleryEvent13, alt: 'Boxing training shot', category: 'Events & Commercial', dateAdded: '2025-11-07' },
+  { id: '29', src: galleryEvent14, alt: 'Boxers sparring action shot', category: 'Events & Commercial', dateAdded: '2025-11-07' },
+  { id: '30', src: galleryEvent15, alt: 'Boxing sparring knockout shot', category: 'Events & Commercial', dateAdded: '2025-11-07' },
 
 
 ];
@@ -97,9 +113,9 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
 export const TESTIMONIALS: Testimonial[] = [
     {
-        quote: "One of the best experiences i've ever had. The best photos in town.",
-        author: "Raja Waris",
-        company: "Model"
+        quote: "Great work from ADM at the Jamesons match day. Very professional and friendly service.",
+        author: "Vinny",
+        company: "Mercia United FC"
     },
     {
         quote: "Exceptional services. Shots were as professional as it gets .Highly recommended!",
@@ -107,9 +123,9 @@ export const TESTIMONIALS: Testimonial[] = [
         company: "Reach High Tutors"
     },
     {
-        quote: "Working with them was an absolute pleasure. They made me feel so comfortable during the portrait session, and the final images are just stunning.",
-        author: "Emily White",
-        company: "Lifestyle Blogger"
+        quote: "Amazing shoot with them for our session. Got some great photos.",
+        author: "Ben Gower",
+        company: "ABC Boxing"
     }
 ];
 
