@@ -16,13 +16,13 @@ import galleryLandscape4 from './assets/images/gallery-horse.jpg';
 import galleryPortraits from './assets/images/gallery-dawood.jpg';
 import galleryPortraits2 from './assets/images/gallery-raja.jpg';
 import galleryLandscape5 from './assets/images/gallery-car1.jpg';
-import galleryPortraits3 from './assets/images/jamal.jpeg';
-import galleryLandscape7 from './assets/images/Horse1.jpeg';
-import galleryLandscape8 from './assets/images/takeon.jpeg';
-import galleryPortraits4 from './assets/images/adm.jpeg';
-import galleryPortraits5 from './assets/images/ali.jpeg';
-import galleryPortraits6 from './assets/images/ali1.jpeg';
-import galleryPortraits7 from './assets/images/ali2.jpeg';
+import galleryPortraits3 from './assets/images/gallery-jamal.jpg';
+import galleryLandscape7 from './assets/images/gallery-horse1.jpg';
+import galleryLandscape8 from './assets/images/gallery-takeon.jpg';
+import galleryPortraits4 from './assets/images/gallery-adm.jpg';
+import galleryPortraits5 from './assets/images/gallery-ali.jpg';
+import galleryPortraits6 from './assets/images/gallery-ali1.jpg';
+import galleryPortraits7 from './assets/images/gallery-ali2.jpg';
 
 
 
