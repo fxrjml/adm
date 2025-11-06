@@ -23,6 +23,7 @@ import galleryPortraits4 from './assets/images/gallery-adm.jpg';
 import galleryPortraits5 from './assets/images/gallery-ali.jpg';
 import galleryPortraits6 from './assets/images/gallery-ali1.jpg';
 import galleryPortraits7 from './assets/images/gallery-ali2.jpg';
+import galleryEvent6 from './assets/images/gallery-skysports.jpg';
 
 
 
@@ -88,6 +89,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   { id: '17', src: galleryPortraits5, alt: 'A player dribbling a football', category: 'Portraits' },
   { id: '19', src: galleryPortraits6, alt: 'Two players discussing before a match', category: 'Portraits' },
   { id: '20', src: galleryPortraits7, alt: 'A player in action during a match', category: 'Portraits' },
+  { id: '21', src: galleryEvent6, alt: 'Sky sports x ADM partnership', category: 'Events & Commercial' },
 
 
 ];
