@@ -16,6 +16,16 @@ import galleryLandscape4 from './assets/images/gallery-horse.jpg';
 import galleryPortraits from './assets/images/gallery-dawood.jpg';
 import galleryPortraits2 from './assets/images/gallery-raja.jpg';
 import galleryLandscape5 from './assets/images/gallery-car1.jpg';
+import galleryLandscape6 from './assets/images/group1.jpeg';
+import galleryPortraits3 from './assets/images/jamal.jpeg';
+import galleryLandscape7 from './assets/images/Horse1.jpeg';
+import galleryLandscape8 from './assets/images/takeon.jpeg';
+import galleryPortraits4 from './assets/images/adm.jpeg';
+import galleryPortraits5 from './assets/images/ali.jpeg';
+import galleryPortraits6 from './assets/images/ali1.jpeg';
+import galleryPortraits7 from './assets/images/ali2.jpeg';
+
+
 
 
 
@@ -66,12 +76,20 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   { id: '4', src: galleryEvent3, alt: 'a child holding a cat', category: 'Events & Commercial' },
   { id: '5', src: galleryEvent4, alt: 'an asian man speaking to a crowd', category: 'Events & Commercial' },
   { id: '6', src: galleryLandscape2, alt: 'a bridge at night', category: 'Landscapes' },
-  { id: '7', src: galleryEvent5, alt: 'a close up of a business card', category: 'Events & Commercial' },
-  { id: '8', src: galleryLandscape3, alt: 'a close up of a cars headlights', category: 'Landscapes' },
-  { id: '9', src: galleryLandscape4, alt: 'a horse running in a field', category: 'Landscapes' },
-  { id: '10', src: galleryPortraits, alt: 'a portrait of a model in a hoodie with eyes covered', category: 'Portraits' },
-  { id: '11', src: galleryPortraits2, alt: 'a portrait of a model in a park', category: 'Portraits' },
-  { id: '12', src: galleryLandscape5, alt: 'a pakistani van with headlights on', category: 'Landscapes' },
+  { id: '7', src: galleryEvent5, alt: 'A close up of a business card', category: 'Events & Commercial' },
+  { id: '8', src: galleryLandscape3, alt: 'A close up of a cars headlights', category: 'Landscapes' },
+  { id: '9', src: galleryLandscape4, alt: 'A horse running in a field', category: 'Landscapes' },
+  { id: '10', src: galleryPortraits, alt: 'A portrait of a model in a hoodie with eyes covered', category: 'Portraits' },
+  { id: '11', src: galleryPortraits2, alt: 'A portrait of a model in a park', category: 'Portraits' },
+  { id: '12', src: galleryLandscape5, alt: 'A pakistani van with headlights on', category: 'Landscapes' },
+  { id: '12', src: galleryPortraits3, alt: 'A player smiling during warm up', category: 'Portraits' },
+  { id: '12', src: galleryLandscape7, alt: 'Man riding a horse', category: 'Landscapes' },
+  { id: '12', src: galleryLandscape8, alt: 'Player taking on a defender', category: 'Landscapes' },
+  { id: '12', src: galleryPortraits4, alt: '2 photographers in the middle of taking photos', category: 'Portraits' },
+  { id: '12', src: galleryPortraits5, alt: 'A player dribbling a football', category: 'Portraits' },
+  { id: '12', src: galleryLandscape6, alt: 'a group warming up for a football game', category: 'Landscapes' },
+  { id: '12', src: galleryPortraits6, alt: 'Two players discussing before a match', category: 'Portraits' },
+  { id: '12', src: galleryPortraits7, alt: 'A player in action during a match', category: 'Portraits' },
 
 
 ];
